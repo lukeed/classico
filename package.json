@@ -1,11 +1,12 @@
 {
-  "name": "classlists",
+  "name": "classico",
   "version": "0.0.0",
-  "umd:name": "classlists",
-  "repository": "lukeed/classlists",
-  "unpkg": "dist/classlists.min.js",
-  "module": "dist/classlists.mjs",
-  "main": "dist/classlists.js",
+  "umd:name": "classico",
+  "repository": "lukeed/classico",
+  "description": "WIP",
+  "unpkg": "dist/classico.min.js",
+  "module": "dist/classico.mjs",
+  "main": "dist/classico.js",
   "license": "MIT",
   "author": {
     "name": "Luke Edwards",
