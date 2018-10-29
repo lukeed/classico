@@ -1,7 +1,6 @@
 {
   "name": "classico",
   "version": "0.0.0",
-  "umd:name": "classico",
   "repository": "lukeed/classico",
   "description": "WIP",
   "unpkg": "dist/classico.min.js",
