@@ -56,25 +56,29 @@ test('has', t => {
 });
 
 test('add', t => {
+	let fn = classico.add;
+
+	t.is(fn(toElement(), 'asd'), undefined, '~> returns undefined');
+
 	let foo = toElement();
 
-	classico.add(foo, 'hello');
+	fn(foo, 'hello');
 	t.is(foo.className, ' hello', 'adds className (with leadspace)');
 
-	classico.add(foo, 'hello');
+	fn(foo, 'hello');
 	t.is(foo.className, ' hello', 'does not duplicate existing className');
 
-	classico.add(foo, 'world');
+	fn(foo, 'world');
 	t.is(foo.className, ' hello world', 'adds additional className correctly');
 
 	console.log(' '); // ---
 
 	let bar = toElement('foo');
 
-	classico.add(bar, 'bar');
+	fn(bar, 'bar');
 	t.is(bar.className, 'foo bar', 'does not overwrite existing className');
 
-	classico.add(bar, 'baz', 'bat');
+	fn(bar, 'baz', 'bat');
 	t.is(bar.className, 'foo bar baz bat', 'supports variadic className assignment');
 
 	t.end();
@@ -83,6 +87,8 @@ test('add', t => {
 test('replace', t => {
 	let fn = classico.replace;
 	let x = toElement();
+
+	t.is(fn(x, 'asd'), undefined, '~> returns undefined');
 
 	fn(x, 'foo', 'bar');
 	t.is(x.className, '', 'does nothing when no match');
@@ -113,20 +119,23 @@ test('replace', t => {
 });
 
 test('remove', t => {
+	let fn = classico.remove;
 	let foo = toElement();
 
-	classico.remove(foo, 'hello');
+	t.is(fn(foo, 'asd'), undefined, '~> returns undefined');
+
+	fn(foo, 'hello');
 	t.is(foo.className, '', 'does nothing when not existing');
 
 	let bar = toElement('hello world');
-	classico.remove(bar, 'hello');
+	fn(bar, 'hello');
 	t.is(bar.className, ' world', 'removes the className; leaves space');
 
-	classico.remove(bar, 'world');
+	fn(bar, 'world');
 	t.is(bar.className, '', 'removes the className; empty');
 
 	let baz = toElement('hello world');
-	classico.remove(baz, 'hello', 'world');
+	fn(baz, 'hello', 'world');
 	t.is(baz.className, '', 'supports variadic className removal');
 
 	t.end();
@@ -135,42 +144,52 @@ test('remove', t => {
 test('toggle', t => {
 	let { toggle } = classico;
 
+	let bool;
 	let foo = toElement();
 
-	toggle(foo, 'hello');
+	bool = toggle(foo, 'hello');
 	t.is(foo.className, ' hello', '(hello) ~> adds the className');
+	t.true(bool, '~> returns `true` when class is added');
 
-	toggle(foo, 'hello');
+	bool = toggle(foo, 'hello');
 	t.is(foo.className, '', '(hello) ~> removes the className');
+	t.false(bool, '~> returns `false` when class is removed');
 
 	console.log(' ');
 
 	let bar = toElement('foo bar');
 
-	toggle(bar, 'bar');
+	bool = toggle(bar, 'bar');
 	t.is(bar.className, 'foo', '(bar) ~> removes existing className');
+	t.false(bool, '~> returns `false` when class is removed');
 
-	toggle(bar, 'foo');
+	bool = toggle(bar, 'foo');
 	t.is(bar.className, '', '(foo) ~> removes existing className');
+	t.false(bool, '~> returns `false` when class is removed');
 
-	toggle(bar, 'bar');
+	bool = toggle(bar, 'bar');
 	t.is(bar.className, ' bar', '(bar) ~> reapplies className');
+	t.true(bool, '~> returns `true` when class is added');
 
 	console.log(' ');
 
 	let baz = toElement('howdy');
 
-	toggle(baz, 'howdy', true);
+	bool = toggle(baz, 'howdy', true);
 	t.is(baz.className, 'howdy', '(howdy) ~> does not duplicate existing className');
+	t.true(bool, '~> returns `true` when class exists*');
 
-	toggle(baz, 'howdy', false);
+	bool = toggle(baz, 'howdy', false);
 	t.is(baz.className, '', '(howdy) ~> force-remove className via toggle');
+	t.false(bool, '~> returns `false` when class is removed');
 
-	toggle(baz, 'howdy', false);
+	bool = toggle(baz, 'howdy', false);
 	t.is(baz.className, '', '(howdy) ~> force-remove does nothing when className not present');
+	t.false(bool, '~> returns `false` when class not present');
 
-	toggle(baz, 'howdy');
+	bool = toggle(baz, 'howdy');
 	t.is(baz.className, ' howdy', '(howdy) ~> adds className once again');
+	t.true(bool, '~> returns `true` when class is added');
 
 	t.end();
 });
