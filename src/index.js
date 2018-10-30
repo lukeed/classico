@@ -16,7 +16,7 @@ export function add(node) {
 export function remove(node) {
 	var i=1, len=arguments.length;
 	for (; i < len; i++) {
-		replace(node, arguments[i], ' ');
+		replace(node, arguments[i]);
 	}
 }
 
@@ -26,5 +26,5 @@ export function toggle(node, str, bool) {
 }
 
 export function replace(node, old, nxt) {
-	node.className = node.className.replace(toRegex(old), nxt);
+	node.className = node.className.replace(toRegex(old), nxt ? (' '+nxt) : '');
 }
