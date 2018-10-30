@@ -23,6 +23,7 @@ export function remove(node) {
 export function toggle(node, str, bool) {
 	bool = bool == null ? !has(node, str) : bool;
 	(bool ? add : remove)(node, str);
+	return bool;
 }
 
 export function replace(node, old, nxt) {
