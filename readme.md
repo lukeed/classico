@@ -1,4 +1,4 @@
-# classico [![Build Status](https://travis-ci.org/lukeed/classico.svg?branch=master)](https://travis-ci.org/lukeed/classico)
+# classico [![Build Status](https://badgen.now.sh/travis/lukeed/classico)](https://travis-ci.org/lukeed/classico)
 
 > A tiny (253B) shim for when [`Element.classList`](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) cannot be used~!
 
