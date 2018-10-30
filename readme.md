@@ -44,12 +44,13 @@ Converts the given String into a RegExp – used within [`classico.has`](#hasno
 
 
 ### has(node<Element>, str<String>)
-Returns: `RegExp`
+Returns: `Boolean`
 
 Checks if the Element's `className` contains the class value – akin to `Element.classList.contains()`.
 
 
 ### add(node<Element>, ...str<String>)
+Returns: `undefined`
 
 Add the class value(s) to the Element's `className` – akin to `Element.classList.add()`.
 
@@ -68,6 +69,7 @@ classico.add(elem, 'foo', 'bar', 'baz');
 
 
 ### remove(node<Element>, ...str<String>)
+Returns: `undefined`
 
 Remove the class value(s) to the Element's `className` – akin to `Element.classList.remove()`.
 
@@ -83,6 +85,7 @@ classico.remove(elem, 'bar', 'baz');
 
 
 ### replace(node<Element>, oldClass<String>, newClass<String>)
+Returns: `undefined`
 
 Replaces an existing class with a new class – akin to `Element.classList.replace()`.
 
@@ -90,6 +93,7 @@ Replaces an existing class with a new class – akin to `Element.classList.repla
 
 
 ### toggle(node<Element>, str<String>, force<Boolean>)
+Returns: `Boolean`
 
 Toggles the existence of a class for an Element – akin to `Element.classList.toggle()`.
 
@@ -97,6 +101,9 @@ When `force` is not defined, the `str` value will be added if not already and re
 
 If `force` is defined and truthy, the `str` value will be added.<br>
 If `force` is defined and falsey, the `str` value will be removed.
+
+Returns `true` if the class was successfully added to the Element.<br>
+Returns `false` if the class was removed from the Element's `className` value.
 
 
 ## License
