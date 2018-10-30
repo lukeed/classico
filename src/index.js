@@ -1,5 +1,5 @@
 export function toRegex(str) {
-	return new RegExp(`(?<=\\s|^)${str}(?=\\s|$)`);
+	return new RegExp(`(^|\\s+)${str}(?=\\s|$)`); // cannot lookbehind, mostly no support
 }
 
 export function has(node, str) {
