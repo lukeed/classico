@@ -1,6 +1,6 @@
 {
   "name": "classico",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "repository": "lukeed/classico",
   "description": "A tiny (253B) shim when Element.classList cannot be used~!",
   "unpkg": "dist/classico.min.js",
