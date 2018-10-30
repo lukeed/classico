@@ -40,7 +40,7 @@ $('.menu-overlay').onclick = () => {
 ### toRegex(str<String>)
 Returns: `RegExp`
 
-Converts the given String into a RegExp – used within [`classico.has`]() and [`classico.replace`]().
+Converts the given String into a RegExp – used within [`classico.has`](#hasnode-str) and [`classico.replace`](#replacenode-oldclass-newclass).
 
 
 ### has(node<Element>, str<String>)
