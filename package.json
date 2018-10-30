@@ -2,7 +2,7 @@
   "name": "classico",
   "version": "1.0.0",
   "repository": "lukeed/classico",
-  "description": "A tiny (253B) shim when Element.classList cannot be used~!",
+  "description": "A tiny (255B) shim when Element.classList cannot be used~!",
   "unpkg": "dist/classico.min.js",
   "module": "dist/classico.mjs",
   "main": "dist/classico.js",
