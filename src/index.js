@@ -1,5 +1,5 @@
 export function toRegex(str) {
-	return new RegExp(`(^|\\s+)${str}(?=\\s|$)`); // cannot lookbehind, mostly no support
+	return new RegExp('(^|\\s+)' + str + '(?=\\s|$)'); // cannot lookbehind, mostly no support
 }
 
 export function has(node, str) {
@@ -9,7 +9,7 @@ export function has(node, str) {
 export function add(node) {
 	var i=1, len=arguments.length;
 	for (; i < len; i++) {
-		has(node, arguments[i]) || (node.className += ` ${arguments[i]}`);
+		has(node, arguments[i]) || (node.className += ' ' + arguments[i]);
 	}
 }
 
