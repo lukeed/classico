@@ -78,14 +78,6 @@ classico.remove(elem, 'bar', 'baz');
 ```
 
 
-### replace(node<Element>, oldClass<String>, newClass<String>)
-Returns: `undefined`
-
-Replaces an existing class with a new class – akin to `Element.classList.replace()`.
-
-> **Important:** If `newClass` is not defined then `oldClass` will be removed entirely!
-
-
 ### toggle(node<Element>, str<String>, force<Boolean>)
 Returns: `Boolean`
 

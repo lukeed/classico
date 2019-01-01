@@ -12,7 +12,7 @@ function toRegex(str) {
 test('exports', t => {
 	t.true(isObject(classico), 'exports an Object');
 
-	['add', 'has', 'remove', 'replace', 'toggle'].forEach(k => {
+	['add', 'has', 'remove', 'toggle'].forEach(k => {
 		t.is(typeof classico[k], 'function', `~> classico.${k} is a function`);
 	});
 
@@ -85,40 +85,6 @@ test('add', t => {
 
 	fn(bar, 'baz', 'bat');
 	t.is(bar.className, 'foo bar baz bat', 'supports variadic className assignment');
-
-	t.end();
-});
-
-test('replace', t => {
-	let fn = classico.replace;
-	let x = toElement();
-
-	t.is(fn(x, 'asd'), undefined, '~> returns undefined');
-
-	fn(x, 'foo', 'bar');
-	t.is(x.className, '', 'does nothing when no match');
-
-	x = toElement('foo bar');
-	fn(x, 'foo', 'new');
-	t.is(x.className, ' new bar', 'match; adds 1 lead space');
-
-	fn(x, 'new', 'hello');
-	t.is(x.className, ' hello bar', 'match; keeps 1 (max) lead space');
-
-	x = toElement(' hello world');
-	fn(x, 'hello', 'goodbye');
-	fn(x, 'world', 'everyone');
-	t.is(x.className, ' goodbye everyone', 'match; replaced multiple');
-
-	console.log(' ');
-
-	x = toElement('foo bar baz');
-	fn(x, 'foo');
-	t.is(x.className, ' bar baz', 'match; remove item when no replacement');
-	fn(x, 'baz');
-	t.is(x.className, ' bar', 'match; remove item when no replacement');
-	fn(x, 'bar');
-	t.is(x.className, '', 'match; remove item when no replacement');
 
 	t.end();
 });
