@@ -4,10 +4,15 @@ const classico = require('../dist/classico');
 const isObject = x => Object.prototype.toString.call(x, '[object Object]');
 const toElement = str => ({ className: str || '' });
 
+// Copied (private)
+function toRegex(str) {
+	return new RegExp('(^|\\s+)' + str + '(?=\\s|$)');
+}
+
 test('exports', t => {
 	t.true(isObject(classico), 'exports an Object');
 
-	['add', 'has', 'remove', 'replace', 'toRegex', 'toggle'].forEach(k => {
+	['add', 'has', 'remove', 'replace', 'toggle'].forEach(k => {
 		t.is(typeof classico[k], 'function', `~> classico.${k} is a function`);
 	});
 
@@ -15,7 +20,7 @@ test('exports', t => {
 });
 
 test('toRegex', t => {
-	let foo = classico.toRegex('foo');
+	let foo = toRegex('foo');
 	t.true(foo instanceof RegExp, 'returns RegExp instance');
 	t.same(foo.toString(), '/(^|\\s+)foo(?=\\s|$)/', '~> is expected RegExp pattern');
 

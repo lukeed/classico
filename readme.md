@@ -37,12 +37,6 @@ $('.menu-overlay').onclick = () => {
 
 ## API
 
-### toRegex(str<String>)
-Returns: `RegExp`
-
-Converts the given String into a RegExp – used within [`classico.has`](#hasnode-str) and [`classico.replace`](#replacenode-oldclass-newclass).
-
-
 ### has(node<Element>, str<String>)
 Returns: `Boolean`
 
