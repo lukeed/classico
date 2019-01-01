@@ -7,15 +7,13 @@ export function has(node, str) {
 }
 
 export function add(node) {
-	var i=1, len=arguments.length;
-	for (; i < len; i++) {
+	for (var i=1; i < arguments.length; i++) {
 		has(node, arguments[i]) || (node.className += ' ' + arguments[i]);
 	}
 }
 
 export function remove(node) {
-	var i=1, len=arguments.length;
-	for (; i < len; i++) {
+	for (var i=1; i < arguments.length; i++) {
 		replace(node, arguments[i]);
 	}
 }
