@@ -1,6 +1,6 @@
 # classico [![Build Status](https://badgen.now.sh/travis/lukeed/classico)](https://travis-ci.org/lukeed/classico)
 
-> A tiny (255B) shim for when [`Element.classList`](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) cannot be used~!
+> A tiny (242B) shim for when [`Element.classList`](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) cannot be used~!
 
 This module exposes three module definitions:
 
